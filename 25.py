@@ -10,6 +10,7 @@ def fatorial(n1: int):
     return resultado
 
 
+
 def realizar_calculo(n1: float, op: str, n2: float):
     if op == "!":
         return fatorial(int(n1))
@@ -28,30 +29,31 @@ def calculadora():
     while True:
         try:
             num1 = float(input("\nDigite o primeiro número: "))
-            operador = input("Digite o operador (+, -, *, /): ")
+            operador = input("Digite o operador (+, -, *, /, !): ")
             if operador == "!":
                 resultado = fatorial(int(num1))
                 print(f"Resultado: {resultado}")
-            num2 = float(input("Digite o segundo número: "))
-            resultado = realizar_calculo(num1, operador, num2)
-            print(f"Resultado: {resultado}")
+
+            elif operador in ["+", "-", "*", "/"]:
+                num2 = float(input("Digite o segundo número: "))
+                resultado = realizar_calculo(num1, operador, num2)
+                print(f"Resultado: {resultado}")
             print(
                 "--Caso queira sair pressione 'q' para sair, ou enter para continuar--"
             )
             saida = input()
-            if saida == "q":
+            if saida.lower() == "q":
                 break
         except Exception as e:
             print(f"Ocorreu um erro inesperado: {e}")
 
+def briot_rufinni():
+  coeficientes = []
+  resultados = []
+  grau = int(input("Qual o grau do polinômio: "))
 
-def funcafim():
-    print("insira as variaveis a, b")
-    a = int(input())
-    b = int(input())
-
-    print(a, b)
-
+  for c in range(grau, -1, -1):
+    coeficientes.append(int(input({c})))
 
 def funcqrdt():
     while True:
@@ -74,19 +76,16 @@ def funcqrdt():
 
             print("---Caso queira sair pressione 'q', ou enter para continuar---")
             saida = input()
-            if saida == "q":
+            if saida.lower() == "q":
                 break
         except ValueError:
             print("Entrada invalida! Tente novamente")
 
 
-# def fatoracao
-
-
 def main():
     while True:
         tprint("CALC", font="sub-zero")
-        tprint("    Super Fudida", font="fire_font-s\n")
+        tprint("Super Fudida", font="fire_font-s\n")
         print("--OPÇÕES--")
         print("1. Calculadora")
         print("2. Função Quadratica")
