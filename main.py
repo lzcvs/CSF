@@ -10,10 +10,13 @@ def fatorial(n1: int):
     return resultado
 
 
+def root(n1: float):
+    num = n1
+    resultado = math.sqrt(num)
+    return resultado
+
 
 def realizar_calculo(n1: float, op: str, n2: float):
-    if op == "!":
-        return fatorial(int(n1))
     if op == "+":
         return n1 + n2
     if op == "-":
@@ -29,11 +32,13 @@ def calculadora():
     while True:
         try:
             num1 = float(input("\nDigite o primeiro número: "))
-            operador = input("Digite o operador (+, -, *, /, !): ")
+            operador = input("Digite o operador (+, -, *, /, !, root): ")
             if operador == "!":
                 resultado = fatorial(int(num1))
                 print(f"Resultado: {resultado}")
-
+            if operador == "root":
+                resultado = root(num1)
+                print(f"Resultado: {resultado}")
             elif operador in ["+", "-", "*", "/"]:
                 num2 = float(input("Digite o segundo número: "))
                 resultado = realizar_calculo(num1, operador, num2)
@@ -47,13 +52,7 @@ def calculadora():
         except Exception as e:
             print(f"Ocorreu um erro inesperado: {e}")
 
-def briot_rufinni():
-  coeficientes = []
-  resultados = []
-  grau = int(input("Qual o grau do polinômio: "))
-
-  for c in range(grau, -1, -1):
-    coeficientes.append(int(input({c})))
+##Conversor unidades
 
 def funcqrdt():
     while True:
